@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PyBot</title>
+<title>PyBot, unofficially</title>
 <meta name="description" content="An unofficial look at PyBot, a chatbot made of plain Python rules that runs in your browser. Examples, comparisons and uses.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PyBot">
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://pybot.huggingface.tool.sovereignweb.site/">
-<meta property="og:title" content="PyBot">
+<meta property="og:title" content="PyBot, unofficially">
 <meta property="og:description" content="An unofficial look at PyBot, a chatbot made of plain Python rules that runs in your browser. Examples, comparisons and uses.">
 <meta property="og:image" content="https://pybot.huggingface.tool.sovereignweb.site/assets/share/card-1200x630.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="PyBot">
+<meta property="og:image:alt" content="PyBot, unofficially">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PyBot">
+<meta name="twitter:title" content="PyBot, unofficially">
 <meta name="twitter:description" content="An unofficial look at PyBot, a chatbot made of plain Python rules that runs in your browser. Examples, comparisons and uses.">
 <meta name="twitter:image" content="https://pybot.huggingface.tool.sovereignweb.site/assets/share/card-1200x630.jpg">
 <link rel="canonical" href="https://pybot.huggingface.tool.sovereignweb.site/">
@@ -61,6 +61,8 @@ h2{font-size:1.25rem;margin:2rem 0 .5rem}ol,ul.plain{color:var(--muted);padding-
 pre{background:rgba(127,127,127,.1);padding:.8rem 1rem;border-radius:6px;white-space:pre-wrap;font-size:.9rem;color:var(--fg)}
 code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
 </style>
+<link rel="stylesheet" href="/assets/pybot.css">
+<script src="/assets/design.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -82,25 +84,57 @@ code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
   </ul>
 </details>
 <header class="top">
-  <a class="name" href="/">PyBot</a>
+  <a class="name" href="/">PyBot (unofficial)</a>
   <nav class="own" aria-label="This site">
     <a href="/start/">Start here</a>
+    <a href="/try/">Try PyBot</a>
+    <a href="/credits/">Credits</a>
+    <a href="/try/">Try PyBot</a>
+    <a href="/credits/">Credits</a>
+    <a href="/try/">Try PyBot</a>
+    <a href="/credits/">Credits</a>
     <a href="/agents/">Use with your AI</a>
   </nav>
 </header>
 <main id="main">
+<p class="unofficial" role="note"><strong>Unofficial.</strong> This site is not made, endorsed or checked by Hugging Face. PyBot is their project: <a href="https://github.com/huggingface/pybot">the code</a> and <a href="https://huggingface.co/spaces/HuggingFaceSwarms/PyBot">their demo</a>. <a href="/credits/">Credits and licences</a>.</p>
 <div class="mark">pybot.huggingface.tool.sovereignweb.site</div>
-<h1>PyBot</h1>
+<h1>PyBot, unofficially</h1>
 <p>An unofficial look at PyBot, a chatbot made of plain Python rules that runs in your browser. Examples, comparisons and uses.</p>
+<p>PyBot is a chatbot written in pure Python, with no model weights and no training: rules, patterns and lookup tables. It is Hugging Face's project. This site is a separate, unofficial look at it.</p>
+<h2>What is here now</h2>
+<ul class="plain">
+<li><a href="/try/">Try PyBot in your browser</a>. It runs on your own computer through Pyodide, with no server, and we show what we found when we ran it.</li>
+<li><a href="/credits/">Credits and licences</a>: where PyBot and Pyodide come from, what licence each is under, and when we read it.</li>
+</ul>
+<h2>What is coming</h2>
+<ul class="plain">
+<li>More examples of what a plain-Python rule-based bot does well, and where it is weaker.</li>
+<li>Comparisons with other models, only once we have run the same prompts and can show them side by side with the date, the model and the exact prompts. None are shown yet.</li>
+<li>Where it could run: the browser, a serverless function and other places, each claim with its source.</li>
+</ul>
 <p>This site was made by one request to the Sovereign Website pipeline. Its files, its history and its address are in a repository its owner controls, and can move anywhere.</p>
+<nav class="designs" aria-label="Choose a design">
+<strong>Choose a design:</strong>
+<ul>
+<li><a href="?design=1" data-design="1">1 Paper</a></li>
+<li><a href="?design=2" data-design="2">2 Terminal</a></li>
+<li><a href="?design=3" data-design="3">3 Ink</a></li>
+<li><a href="?design=4" data-design="4">4 Sky</a></li>
+<li><a href="?design=5" data-design="5">5 Sunset</a></li>
+</ul>
+</nav>
 <footer>
 <nav class="site-links" aria-label="About this site">
+  <a href="/try/">Try PyBot</a>
+  <a href="/credits/">Credits and licences</a>
   <a href="/start/">Start here</a>
   <a href="/agents/">Use with your AI</a>
   <a href="/admin/">How this site was made</a>
   <a href="/policy/">How this site is governed</a>
 </nav>
-A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Tool__Huggingface__Pybot">github.com/SovereignWebsite/Site__Tool__Huggingface__Pybot</a>.</footer>
+Unofficial: not made or endorsed by Hugging Face. A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Tool__Huggingface__Pybot">github.com/SovereignWebsite/Site__Tool__Huggingface__Pybot</a>.
+</footer>
 </main>
 </body>
 </html>

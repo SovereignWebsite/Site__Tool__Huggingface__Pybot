@@ -61,6 +61,8 @@ h2{font-size:1.25rem;margin:2rem 0 .5rem}ol,ul.plain{color:var(--muted);padding-
 pre{background:rgba(127,127,127,.1);padding:.8rem 1rem;border-radius:6px;white-space:pre-wrap;font-size:.9rem;color:var(--fg)}
 code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
 </style>
+<link rel="stylesheet" href="/assets/pybot.css">
+<script src="/assets/design.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -89,6 +91,8 @@ code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
   </nav>
 </header>
 <main id="main">
+<p class="unofficial" role="note"><strong>Unofficial.</strong> This site is not made, endorsed or checked by Hugging Face. PyBot is their project: <a href="https://github.com/huggingface/pybot">the code</a> and <a href="https://huggingface.co/spaces/HuggingFaceSwarms/PyBot">their demo</a>. <a href="/credits/">Credits and licences</a>.</p>
+
 <div class="mark">Start here</div>
 <h1>Your site, and how to take it over</h1>
 <p>This page is for the owner of PyBot. The site is static files in one GitHub repository, <a href="https://github.com/SovereignWebsite/Site__Tool__Huggingface__Pybot">SovereignWebsite/Site__Tool__Huggingface__Pybot</a>. It is served at <a href="https://pybot.huggingface.tool.sovereignweb.site/">https://pybot.huggingface.tool.sovereignweb.site</a> from the <code>site/</code> folder on the <code>dev</code> branch.</p>
@@ -112,6 +116,16 @@ code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
 <h2>4. It is yours</h2>
 <p>The files, the history and the address are in a repository you control. You can move it anywhere, at any time: it is plain HTML with no server code, no cookies and no tracking.</p>
 
+<nav class="designs" aria-label="Choose a design">
+<strong>Choose a design:</strong>
+<ul>
+<li><a href="?design=1" data-design="1">1 Paper</a></li>
+<li><a href="?design=2" data-design="2">2 Terminal</a></li>
+<li><a href="?design=3" data-design="3">3 Ink</a></li>
+<li><a href="?design=4" data-design="4">4 Sky</a></li>
+<li><a href="?design=5" data-design="5">5 Sunset</a></li>
+</ul>
+</nav>
 <footer>
 <nav class="site-links" aria-label="About this site">
   <a href="/start/">Start here</a>

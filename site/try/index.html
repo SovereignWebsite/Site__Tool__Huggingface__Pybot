@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Try PyBot in your browser</title>
+<meta name="description" content="Run PyBot, a chatbot made of plain Python rules, on your own computer through Pyodide. Unofficial: not made or endorsed by Hugging Face.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PyBot">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://pybot.huggingface.tool.sovereignweb.site/try/">
+<meta property="og:title" content="Try PyBot in your browser">
+<meta property="og:description" content="Run PyBot, a chatbot made of plain Python rules, on your own computer through Pyodide. Unofficial: not made or endorsed by Hugging Face.">
+<meta property="og:image" content="https://pybot.huggingface.tool.sovereignweb.site/assets/share/card-1200x630.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Try PyBot in your browser">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Try PyBot in your browser">
+<meta name="twitter:description" content="Run PyBot, a chatbot made of plain Python rules, on your own computer through Pyodide. Unofficial: not made or endorsed by Hugging Face.">
+<meta name="twitter:image" content="https://pybot.huggingface.tool.sovereignweb.site/assets/share/card-1200x630.jpg">
+<link rel="canonical" href="https://pybot.huggingface.tool.sovereignweb.site/try/">
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5c57;--accent:#2f6b4f;--line:#e4e1d8}
+@media (prefers-color-scheme:dark){:root{--bg:#141513;--fg:#ecebe6;--muted:#a8a69e;--accent:#7fc3a0;--line:#2c2d29}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:44rem;margin:0 auto;padding:10vh 1rem 4rem}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem}
+.mark{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin:.4rem 0 1rem}
+p{color:var(--muted);margin:0 0 1rem}a{color:var(--accent)}
+footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+/* The Sovereign Website credit on a customer's site: one small, muted control at the far top right that opens a
+   pop-up menu of the family links. Not a strip and not a menu bar: the site is about its owner (Dinis, 20 November
+   2026: "It needs to fundamentally be about the site and who is it about ... top right pop-up menu").
+   CSS only (details/summary), so no script and no CSP issue. It sits in the page's corner, above the owner's header;
+   a site whose own header uses that corner moves it with --family-top / --family-right.
+   To remove it, the owner sets one attribute: <html data-family-credit="off">. */
+.family-credit{--fam-fg:var(--family-fg,#5a5a5a);--fam-strong:var(--family-fg-strong,#111);--fam-bg:var(--family-bg,#fff);
+  position:absolute;top:var(--family-top,.4rem);right:var(--family-right,.75rem);z-index:50;font-size:.75rem;line-height:1.4}
+@media (prefers-color-scheme:dark){.family-credit{--fam-fg:var(--family-fg,#b5b5b5);--fam-strong:var(--family-fg-strong,#fff);--fam-bg:var(--family-bg,#1c1c1c)}}
+.family-credit summary{display:inline-flex;align-items:center;gap:.3rem;cursor:pointer;color:var(--fam-fg);list-style:none;min-height:24px;padding:.15rem .3rem;border-radius:4px}
+.family-credit summary::-webkit-details-marker{display:none}
+.family-credit summary::after{content:"";width:.35rem;height:.35rem;border:solid currentColor;border-width:0 1px 1px 0;transform:rotate(45deg) translateY(-2px)}
+.family-credit summary:hover,.family-credit summary:focus-visible,.family-credit[open] summary{color:var(--fam-strong)}
+.family-credit ul{position:absolute;right:0;top:100%;margin:.25rem 0 0;padding:.35rem 0;list-style:none;min-width:11rem;
+  background:var(--fam-bg);border:1px solid rgba(127,127,127,.3);border-radius:6px;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.family-credit a{display:block;padding:.3rem .8rem;min-height:24px;color:var(--fam-fg);text-decoration:none}
+.family-credit a:hover,.family-credit a:focus-visible{color:var(--fam-strong);background:rgba(127,127,127,.1)}
+.family-credit .family-gap{border-bottom:1px solid rgba(127,127,127,.25);padding-bottom:.3rem;margin-bottom:.3rem}
+[data-family-credit="off"] .family-credit{display:none}
+@media print{.family-credit{display:none}}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.5rem;max-width:44rem;margin:0 auto;padding:2.2rem 1rem 0}
+.top .name{font-weight:600;color:var(--fg);text-decoration:none}
+.own{display:flex;gap:1rem;margin-left:auto;font-size:.95rem}
+.own a,.site-links a{color:var(--accent);font-weight:600}
+.site-links{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin-bottom:.8rem;font-size:.95rem}
+@media (max-width:40rem){.own{margin:0;width:100%}}
+h2{font-size:1.25rem;margin:2rem 0 .5rem}ol,ul.plain{color:var(--muted);padding-left:1.2rem}li{margin:.35rem 0}
+pre{background:rgba(127,127,127,.1);padding:.8rem 1rem;border-radius:6px;white-space:pre-wrap;font-size:.9rem;color:var(--fg)}
+code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
+</style>
+<link rel="stylesheet" href="/assets/pybot.css">
+<script src="/assets/design.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<details class="family-credit">
+  <summary>Sovereign Website</summary>
+  <ul>
+    <li><a href="/start/">Start here</a></li>
+    <li><a href="/agents/">Use with your AI</a></li>
+    <li class="family-gap"><a href="/admin/">How this site was made</a></li>
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+</details>
+<header class="top">
+  <a class="name" href="/">PyBot (unofficial)</a>
+  <nav class="own" aria-label="This site">
+    <a href="/start/">Start here</a>
+    <a href="/try/">Try PyBot</a>
+    <a href="/credits/">Credits</a>
+    <a href="/try/">Try PyBot</a>
+    <a href="/credits/">Credits</a>
+    <a href="/try/">Try PyBot</a>
+    <a href="/credits/">Credits</a>
+    <a href="/agents/">Use with your AI</a>
+  </nav>
+</header>
+<main id="main">
+<p class="unofficial" role="note"><strong>Unofficial.</strong> This site is not made, endorsed or checked by Hugging Face. PyBot is their project: <a href="https://github.com/huggingface/pybot">the code</a> and <a href="https://huggingface.co/spaces/HuggingFaceSwarms/PyBot">their demo</a>. <a href="/credits/">Credits and licences</a>.</p>
+<div class="mark">Try it</div>
+<h1>Try PyBot in your browser</h1>
+<p>This runs PyBot on your own computer. Python itself (through Pyodide, which compiles Python to WebAssembly) and PyBot's code are served from this site and run in a Web Worker in your browser. What you type is not sent anywhere.</p>
+<div class="facts">
+<div><b>Before you press the button</b>It downloads about 27 MB (PyBot's code about 13 MB, Python about 14 MB) and takes a while to start. In our test run (headless Chromium in a cloud container) it took 13.7 seconds.</div>
+<div><b>PyBot can be wrong</b>It is built from rules, so it answers some things well and others badly. See the notes below the chat.</div>
+<div><b>Unmodified</b>The code is PyBot's, unchanged, at commit 7d63c7f (16 November 2026), under the Apache License 2.0. <a href="/credits/">Credits and licences</a>.</div>
+</div>
+<p><button id="start" type="button">Start PyBot (downloads about 27 MB)</button></p>
+<p id="status" role="status" aria-live="polite">PyBot has not started. Nothing has been downloaded.</p>
+<section class="chat" aria-label="Chat with PyBot">
+<ol id="log" aria-live="polite" aria-label="Conversation"></ol>
+<form id="f" class="row">
+<label for="t" class="visually">Your message</label>
+<input id="t" type="text" autocomplete="off" disabled>
+<button id="send" type="submit" disabled>Send</button>
+<button id="reset" type="button" class="alt" disabled>New conversation</button>
+</form>
+<p>Examples to try:</p>
+<ul class="examples">
+<li><button type="button" class="alt" data-q="Why do onions make you cry?" disabled>Why do onions make you cry?</button></li>
+<li><button type="button" class="alt" data-q="what is the capital of Portugal?" disabled>Capital of Portugal</button></li>
+<li><button type="button" class="alt" data-q="write me a haiku about rain" disabled>A haiku about rain</button></li>
+<li><button type="button" class="alt" data-q="how many legs does a spider have" disabled>Legs on a spider</button></li>
+</ul>
+</section>
+<h2>What we found when we ran it</h2>
+<p>We built PyBot from its source and ran it twice on 27 November 2026 (about 01:32 to 01:35 UTC): in a terminal with Python 3.13, and in headless Chromium through Pyodide 0.27.7. Its own 12 tests passed (24 seconds). These are our runs, not PyBot's published figures.</p>
+<table class="runs">
+<caption>The same prompts, run twice. The browser run was not seeded, so wording can differ.</caption>
+<thead><tr><th scope="col">Prompt</th><th scope="col">Terminal (seed 1)</th><th scope="col">Browser (unseeded)</th></tr></thead>
+<tbody>
+<tr><th scope="row">hi, i'm Sam, then: what's my name?</th><td>Remembered: "You're Sam."</td><td>Remembered: "You're Sam."</td></tr>
+<tr><th scope="row">what is the capital of Portugal?</th><td>"Lisbon."</td><td>"Lisbon."</td></tr>
+<tr><th scope="row">how many legs does a spider have</th><td>Wrong: a reply about housing a rabbit.</td><td>Declined: "I'm not sure about that one, sorry".</td></tr>
+</tbody>
+</table>
+<p>Timings: about 8 seconds for the first terminal reply including start-up, 1.4 to 2.3 seconds per turn after that; in the browser 13.7 seconds to start and 0.8 to 7.5 seconds per reply. One machine, one run each: treat these as examples, not benchmarks.</p>
+<nav class="designs" aria-label="Choose a design">
+<strong>Choose a design:</strong>
+<ul>
+<li><a href="?design=1" data-design="1">1 Paper</a></li>
+<li><a href="?design=2" data-design="2">2 Terminal</a></li>
+<li><a href="?design=3" data-design="3">3 Ink</a></li>
+<li><a href="?design=4" data-design="4">4 Sky</a></li>
+<li><a href="?design=5" data-design="5">5 Sunset</a></li>
+</ul>
+</nav>
+<footer>
+<nav class="site-links" aria-label="About this site">
+  <a href="/try/">Try PyBot</a>
+  <a href="/credits/">Credits and licences</a>
+  <a href="/start/">Start here</a>
+  <a href="/agents/">Use with your AI</a>
+  <a href="/admin/">How this site was made</a>
+  <a href="/policy/">How this site is governed</a>
+</nav>
+Unofficial: not made or endorsed by Hugging Face. A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Tool__Huggingface__Pybot">github.com/SovereignWebsite/Site__Tool__Huggingface__Pybot</a>.
+</footer>
+<script src="/try/try.js"></script>
+</main>
+</body>
+</html>
